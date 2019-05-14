@@ -6,8 +6,6 @@ import re
 from pathlib import Path
 from io import BytesIO
 import base64
-import torch
-import aiohttp
 import requests
 
 # Import fast.ai Library
@@ -23,14 +21,14 @@ from PIL import Image as PILImage
 app = Flask(__name__)
 
 NAME_OF_FILE = 'model_best' # Name of your exported file
-PATH_TO_MODELS_DIR = Path('../') # by default just use /models in root dir
+PATH_TO_MODELS_DIR = Path('') # by default just use /models in root dir
 classes = ['Actinic keratoses', 'Basal cell carcinoma', 'Benign keratosis',
            'Dermatofibroma', 'Melanoma', 'Melanocytic nevi', 'Vascular lesions']
 
 def setup_model_pth(path_to_pth_file, learner_name_to_load, classes):
     data = ImageDataBunch.single_from_classes(
         path_to_pth_file, classes, ds_tfms=get_transforms(), size=224).normalize(imagenet_stats)
-    learn = cnn_learner(data, models.densenet159, model_dir='models')
+    learn = cnn_learner(data, models.densenet169, model_dir='models')
     learn.load(learner_name_to_load, device=torch.device('cpu'))
     return learn
 
