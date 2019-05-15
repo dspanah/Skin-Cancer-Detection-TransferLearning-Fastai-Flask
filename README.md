@@ -8,9 +8,9 @@ This is the source code for a skin cancer detection web app which has been imple
 
 ## Dependencies
 
-Fastai 1.0.52 <br/>
-Flask <br/>
-Gunicorn
+- Fastai 1.0.52 <br/>
+- Flask <br/>
+- Gunicorn
 
 ## Instructions
 First run `sudo pip install -r requirements.txt`  to install the required dependencies. Then launch the app by running `python app.py`. Open up your browser and navigate to http://localhost:8008
