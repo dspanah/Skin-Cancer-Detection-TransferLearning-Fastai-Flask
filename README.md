@@ -8,6 +8,7 @@ This is the source code for a skin cancer detection web app which has been imple
 
 ## Dependencies
 
+- Python 3.6 <br/>
 - Fastai 1.0.52 <br/>
 - Flask <br/>
 - Gunicorn
