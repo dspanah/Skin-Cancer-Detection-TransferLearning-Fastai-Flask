@@ -14,7 +14,6 @@ from fastai.vision import *
 
 # Flask utils
 from flask import Flask, redirect, url_for, render_template, request
-from werkzeug.utils import secure_filename
 from PIL import Image as PILImage
 
 # Define a flask app
@@ -23,7 +22,7 @@ app = Flask(__name__)
 NAME_OF_FILE = 'model_best' # Name of your exported file
 PATH_TO_MODELS_DIR = Path('') # by default just use /models in root dir
 classes = ['Actinic keratoses', 'Basal cell carcinoma', 'Benign keratosis',
-           'Dermatofibroma', 'Melanoma', 'Melanocytic nevi', 'Vascular lesions']
+           'Dermatofibroma', 'Melanocytic nevi', 'Melanoma', 'Vascular lesions']
 
 def setup_model_pth(path_to_pth_file, learner_name_to_load, classes):
     data = ImageDataBunch.single_from_classes(
